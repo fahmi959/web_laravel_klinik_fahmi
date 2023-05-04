@@ -1,5 +1,5 @@
 # sistem-informasi-rumah-sakit
-Web sistem informasi rumah sakit menggunakan Laravel 8 dan Bootstrap 5
+Web sistem informasi rumah sakit menggunakan Laravel 10 dan Bootstrap 5
 
 # Petunjuk Instal
 1. Silahkan clone/download file ini
