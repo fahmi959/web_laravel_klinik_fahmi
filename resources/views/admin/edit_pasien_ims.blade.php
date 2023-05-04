@@ -50,7 +50,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="nik">NIK</label>
-                                <input type="text" class="form-control" name="nik" required id="nik" value="{{ $data->nik }}">
+                                <input type="text" class="form-control" name="nik" readonly id="nik" value="{{ $data->nik }}">
                             </div>
                         <div class="mb-3">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
@@ -81,11 +81,11 @@
                         <div class="mb-3">
                             <label for="jenis_kelamin">Jenis Kelamin</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="1"  {{ $data->jenis_kelamin == 1 ? 'checked' : '' }}>
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="Laki - Laki" value="Laki - Laki"  {{ $data->jenis_kelamin == 'Laki - Laki' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="laki-laki">Laki-Laki</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="0"  {{ $data->jenis_kelamin == 0 ? 'checked' : '' }}>
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="Perempuan" value="Perempuan"  {{ $data->jenis_kelamin == 'Perempuan' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="perempuan">Perempuan</label>
                             </div>
                         </div>

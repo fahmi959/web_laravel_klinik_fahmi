@@ -28,6 +28,11 @@
 					<div class="col-xl-12">
 						<div class="card">
 							<div class="card-body">
+
+
+
+
+
 							     <form method="post" action="/cari_pasien_ims">
 							         @csrf
 							        <div class="input-group mb-4">
@@ -35,8 +40,35 @@
 							            <button type="submit" class="btn btn-primary">Cari</button>
 							        </div>
 							    </form>
-							    <a href="/tambah_pasien_ims" class="btn btn-success mb-3">Tambah</a>
-								<div class="table-responsive">
+
+
+
+                                <div class="input-group mb-4">
+
+                                        <form action="{{ route('pasien_ims.import')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="file" name="file" class="form-control">
+                                            <button class="btn btn-secondary" class="form-control"> Upload Excel</button>
+                                        </form>
+
+                                        &nbsp;  &nbsp;
+
+                                    <a href="{{ route('pasien_ims.pdf') }}"  class="mx-auto">
+                                        <button class='btn btn-danger '  style="margin-left: 10px;">Generate PDF</button>
+                                    </a>
+
+
+                                    <a href="{{ route('pasien_ims.export')}}"  >
+                                        <button class='btn btn-warning'  >Download Excel</button>
+                                    </a>
+
+                                    <a href="/tambah_pasien_ims" class="btn btn-success ml-auto"  style="margin-left: 10px;">Tambah Data Pasien</a>
+
+                               </div>
+
+
+
+								<div class="table-responsive" >
 								    @if(session('sukses'))
 								    <div class="alert alert-success my-4">
 								        {{session('sukses')}}
@@ -77,7 +109,7 @@
 					<?php
 					//rumus: ($pasien_ims->currentPage()*jumlah data per halaman) - (jumlah data per halaman - 1)
 					$i = ($pasien_ims->currentPage()*10) - 9 ?>
-					  @foreach($pasien_ims as $p)						
+					  @foreach($pasien_ims as $p)
                       <tr>
 												<th scope="row">{{$i++}}</th>
                                                 <td>{{$p->no_cm}}</td>

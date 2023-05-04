@@ -116,3 +116,12 @@ Route::post('/hapus_pasien_ims', [PasienImsController::class, 'hapus_pasien_ims'
 Route::get('/edit_pasien_ims/{id}', [PasienImsController::class, 'edit_pasien_ims'])->middleware('admin');
 Route::post('/update_pasien_ims', [PasienImsController::class, 'update_pasien_ims'])->middleware('admin');
 Route::post('/cari_pasien_ims', [PasienImsController::class, 'cari_pasien_ims']);
+
+// index_pasien_ims
+Route::get('pasien_ims', [PasienImsController::class, 'index']);
+// generate pdf
+Route::get('generatepdf', [PasienImsController::class, 'generatepdf'])->name('pasien_ims.pdf');
+// upload atau import
+Route::post('pasien_ims-import', [PasienImsController::class, 'import'])->name('pasien_ims.import');
+// export excel
+Route::get('pasien_ims-export', [PasienImsController::class, 'export'])->name('pasien_ims.export');

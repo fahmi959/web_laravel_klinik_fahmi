@@ -18,14 +18,15 @@ class PasienIms extends Migration
         // $table->id('nomer_id'); //tipe data id itu sudah menjadi primary key
         $table->double('no_cm');
         $table->string('nama');
-        $table->double('nik')->unique();
+        // $table->double('nik')->unique(); // kalau mau Unique tidak boleh sama
+         $table->double('nik');
         $table->date('tanggal_lahir');
         $table->date('tanggal_kunjungan');
         $table->text('alamat');
         $table->char('diagnosa', 255);
         $table->char('status');
         $table->string('kelurahan');
-        $table->boolean('jenis_kelamin');
+        $table->char('jenis_kelamin');
         $table->string('puskesmas');
 
         $table->timestamps();

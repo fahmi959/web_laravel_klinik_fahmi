@@ -9,6 +9,18 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
+// EXPORT DAN IMPORT EXCEL
+use App\Exports\PasienImsExport;
+use App\Imports\PasienImsImport;
+use App\Models\PasienIms;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+
+
+
+
 class PasienImsController extends Controller
 {
     public function tambah_pasien_ims(){
@@ -20,14 +32,15 @@ class PasienImsController extends Controller
         $request->validate([
             'no_cm' => 'required|numeric',
             'nama' => 'required|string',
-            'nik' => 'required|unique:pasien_ims|integer',
+            // 'nik' => 'required|unique:pasien_ims|integer',
+            'nik' => 'required|integer',
             'tanggal_lahir' => 'required',
             'tanggal_kunjungan' => 'required',
             'alamat' => 'required',
             'diagnosa' => 'required|max:255',
             'status' => 'nullable',
             'kelurahan' => 'required',
-            'jenis_kelamin' => 'required|boolean',
+            'jenis_kelamin' => 'required',
             'puskesmas' => 'required',
             ]);
 
@@ -68,14 +81,14 @@ class PasienImsController extends Controller
         $request->validate([
             'no_cm' => 'required|numeric',
             'nama' => 'required|string',
-            'nik' => 'required|unique:pasien_ims|integer',
+            'nik' => 'required|integer',
             'tanggal_lahir' => 'required',
             'tanggal_kunjungan' => 'required',
             'alamat' => 'required',
             'diagnosa' => 'required|max:255',
             'status' => 'nullable',
             'kelurahan' => 'required',
-            'jenis_kelamin' => 'required|boolean',
+            'jenis_kelamin' => 'required',
             'puskesmas' => 'required',
             ]);
 
@@ -108,4 +121,34 @@ class PasienImsController extends Controller
                         ->get();
         return view('admin.cari_pasien_ims', ['pasien_ims' => $pasien_ims, 'keyword' => $request->keyword]);
     }
+
+
+
+
+    public function index(){
+        $pasien_ims = PasienIms::all();
+
+        return view('layout/pasien_ims', ['pasien_ims'=>$pasien_ims]);
+    }
+
+    public function generatepdf(){
+        $pasien_ims = PasienIms::all();
+
+        $pdf = PDF::loadView('layout.pasien_ims', [ 'pasien_ims' => $pasien_ims]);
+
+        return $pdf->download('latihanpdf.pdf');
+    }
+
+    //import / upload
+    public function import(){
+        Excel::import(new PasienImsImport, request()->file('file'));
+
+        return back();
+    }
+
+    //export / download
+    public function export(){
+        return Excel::download(new PasienImsExport, 'nama.xlsx');
+    }
+
 }

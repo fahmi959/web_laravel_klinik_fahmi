@@ -84,11 +84,11 @@
                         <div class="mb-3">
                             <label for="jenis_kelamin">Jenis Kelamin</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki-laki" value="1" {{ old('jenis_kelamin') }}>
-                                <label class="form-check-label" for="laki-laki">Laki-Laki</label>
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="Laki - Laki" value="Laki - Laki" {{ old('jenis_kelamin') }}>
+                                <label class="form-check-label" for="laki-laki">Laki - Laki</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan" value="0" {{ old('jenis_kelamin') }}>
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="Perempuan" value="Perempuan" {{ old('jenis_kelamin') }}>
                                 <label class="form-check-label" for="perempuan">Perempuan</label>
                             </div>
                         </div>
