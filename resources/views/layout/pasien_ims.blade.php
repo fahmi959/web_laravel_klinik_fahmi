@@ -8,8 +8,8 @@
             body {
                 float: left;
                 font-family: "Open Sans", sans-serif;
-                font-size: 11px; /* mengubah ukuran font */
-                line-height: 0.8;
+                font-size: 10px; /* mengubah ukuran font */
+                line-height: 1.1;
             }
             h1, h2 {
                 font-weight: 400;
