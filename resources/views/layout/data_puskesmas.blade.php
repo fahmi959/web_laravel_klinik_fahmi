@@ -89,56 +89,37 @@
         <div class="logo"></div>
 
         <div class="container">
-            <h1 style="margin-top: 30px;text-align:center">Cetak Data Pasien IMS</h1>
+            <h1 style="margin-top: 30px;text-align:center">Cetak Data Puskesmas</h1>
 
             <table class="table">
                 <thead>
                   <tr>
-                    <th>No</th>
-
-                    <th>No CM</th>
-                    <th>Nama</th>
-                    <th>NIK</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Tanggal Kunjungan</th>
-                    <th>Alamat</th>
-                    <th>Diagnosa</th>
-                    <th>Status</th>
+                    <th>Kode KD</th>
                     <th>Kelurahan</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Puskesmas</th>
+                    <th>Kode Puskesmas</th>
+                    <th>Nama Puskesmas</th>
+                    <th>Kode Kecamatan</th>
+                    <th>Nama Kecamatan</th>
+                    <th>Kode Kelurahan</th>
                   </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    @foreach ($pasien_ims as $row)
+                    @foreach ($puskesmas_kecamatan_kelurahans as $row)
                     <tr>
-                        <th scope="row">{{$i++}}</th>
-                        <td>{{$row->no_cm}}</td>
-                        <td>{{$row->nama}}</td>
-                        <td>{{$row->nik}}</td>
-                        <td>{{date('d/m/Y', strtotime($row->tanggal_lahir))}}</td>
-                        <td>{{date('d/m/Y', strtotime($row->tanggal_kunjungan))}}</td>
-                        <td>{{$row->alamat}}</td>
-                        <td>{{$row->diagnosa}}</td>
-                        <td>
-                            <?php
-                            if($row->status){
-                                echo $row->status;
-                            }
-                            else{
-                                echo 'none';
-                            }
-                            ?>
-                        </td>
+                        <td>{{$row->kode_kd}}</td>
                         <td>{{$row->kelurahan}}</td>
-                        <td>{{$row->jenis_kelamin}}</td>
-                        <td>{{$row->puskesmas}}</td>
+                        <td>{{$row->kode_puskesmas}}</td>
+                        <td>{{$row->nama_puskesmas}}</td>
+                        <td>{{$row->kode_kecamatan}}</td>
+                        <td>{{$row->nama_kecamatan}}</td>
+                        <td>{{$row->kode_kelurahan}}</td>
 
-                            <a href="/edit_pasien_ims/{{$row->id}}"><i class="fas fa-pencil-alt" style="margin-right:5px"></i></a>
-                            <form method="post" class="d-inline" action="/hapus_pasien_ims">
 
-                                <input type="hidden" name="id" value="{{$row->id}}">
+                            <a href="/edit_data_puskesmas/{{$row->kode_kd}}"><i class="fas fa-pencil-alt" style="margin-right:5px"></i></a>
+                            <form method="post" class="d-inline" action="/hapus_data_puskesmas">
+
+                                <input type="hidden" name="kode_kd" value="{{$row->kode_kd}}">
                                 <button class="btn" onclick="return confirm('Yakin mau menghapus?')"><i class="far fa-trash-alt"></i></button>
                             </form>
 

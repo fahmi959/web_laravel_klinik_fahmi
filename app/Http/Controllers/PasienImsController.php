@@ -65,11 +65,20 @@ class PasienImsController extends Controller
             }
     }
 
+
+    // HAPUS PER ITEM DATA YANG DIPILIH BERDASARKAN ID
     public function hapus_pasien_ims(Request $request){
         $id = $request->id;
         DB::table('pasien_ims')->delete($id);
         return redirect('/data_pasien_ims')->with('hapus', 'Data pasien berhasil dihapus');
     }
+
+    // FUNGSI  HAPUS SEMUA DATA PADA ISIAN TABEL DI DATABASE
+    public function hapus_semua_data_pasien_ims()
+{
+    DB::table('pasien_ims')->truncate();
+    return redirect('/data_pasien_ims')->with('hapus', 'Semua data pasien berhasil dihapus');
+}
 
     public function edit_pasien_ims($id){
         $data = DB::table('pasien_ims')->find($id);
@@ -136,7 +145,7 @@ class PasienImsController extends Controller
 
         $pdf = PDF::loadView('layout.pasien_ims', [ 'pasien_ims' => $pasien_ims]);
 
-        return $pdf->download('latihanpdf.pdf');
+        return $pdf->download('nama.pdf');
     }
 
     //import / upload

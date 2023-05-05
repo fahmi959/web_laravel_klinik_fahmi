@@ -19,7 +19,7 @@ class PasienIms extends Migration
         $table->double('no_cm');
         $table->string('nama');
         // $table->double('nik')->unique(); // kalau mau Unique tidak boleh sama
-         $table->double('nik');
+         $table->string('nik');
         $table->date('tanggal_lahir');
         $table->date('tanggal_kunjungan');
         $table->text('alamat');

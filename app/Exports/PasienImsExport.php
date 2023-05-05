@@ -13,11 +13,11 @@ class PasienImsExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return PasienIms::select(  'no_cm', 'nama' , 'nik', 'tanggal_lahir', 'tanggal_kunjungan' , 'alamat' , 'diagnosa' , 'status' , 'kelurahan' , 'jenis_kelamin', 'puskesmas')->get();
+        return PasienIms::select(  'id' ,'no_cm', 'nama' , 'nik', 'tanggal_lahir', 'tanggal_kunjungan' , 'alamat' , 'diagnosa' , 'status' , 'kelurahan' , 'jenis_kelamin', 'puskesmas')->get();
     }
 
     public function headings(): array{
-        return [ "NO CM", "NAMA" ,"NIK" , "TANGGAL LAHIR", "TANGGAL KUNJUNGAN", "ALAMAT" , "DIAGNOSA" , "STATUS", "KELURAHAN", "JENIS KELAMIN", "PUSKESMAS"];
+        return [ "NO" , "NO CM", "NAMA" ,"NIK" , "TANGGAL LAHIR", "TANGGAL KUNJUNGAN", "ALAMAT" , "DIAGNOSA" , "STATUS", "KELURAHAN", "JENIS KELAMIN", "PUSKESMAS"];
     }
 
 

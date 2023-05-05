@@ -45,11 +45,13 @@
 
                                 <div class="input-group mb-4">
 
-                                        <form action="{{ route('pasien_ims.import')}}" method="POST" enctype="multipart/form-data">
+
+
+                                        <form action="{{ route('pasien_ims.import')}}" method="POST" enctype="multipart/form-data" style="display: flex; align-items: center; border: 1px solid #ccc; padding: 1px;">
                                             @csrf
-                                            <input type="file" name="file" class="form-control">
-                                            <button class="btn btn-secondary" class="form-control"> Upload Excel</button>
-                                        </form>
+                                            <input type="file" name="file" class="form-control" style="margin-right: 0px;">
+                                            <button class="btn btn-secondary" type="submit"> Upload </button>
+                                          </form>
 
                                         &nbsp;  &nbsp;
 
@@ -63,6 +65,11 @@
                                     </a>
 
                                     <a href="/tambah_pasien_ims" class="btn btn-success ml-auto"  style="margin-left: 10px;">Tambah Data Pasien</a>
+
+
+                                    <a href="{{ route('pasien_ims.delete_semua') }}"  class="ml-auto">
+                                        <button class='btn btn-dark ' onclick="return confirm('Anda yakin ingin menghapus semua data?')" style="margin-left: 10px;">Hapus Semua</button>
+                                    </a>
 
                                </div>
 

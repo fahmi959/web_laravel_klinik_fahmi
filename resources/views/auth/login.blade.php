@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    
+
     <style>
         body{
             background: #efefef;
@@ -18,19 +18,19 @@
         }
     </style>
 
-    <title>Login | RS Nusa Bangsa</title>
+    <title>Login | RS Gunnung Jati Cirebon</title>
   </head>
   <body>
-    
+
     <!-- navbar -->
     <nav class="navbar navbar-dark bg-primary mb-4">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">RS Nusa Bangsa</span>
+        <span class="navbar-brand mb-0 h1">RS Gunung Jati Cirebon</span>
       </div>
     </nav>
     <!-- akhir navbar -->
-    
-    
+
+
     <!-- content -->
     <div class="container">
             <div class="row">
@@ -39,25 +39,25 @@
                     <form method="post" action="/store_login">
                         @csrf
                         <h2 class="mb-4">Login</h2>
-                        
+
                         @if(session('register'))
                         <div class="alert alert-success my-4">
                             {{session('register')}}
                         </div>
                         @endif
-                        
+
                         @if(session('username'))
                         <div class="alert alert-danger my-4">
                             {{session('username')}}
                             </div>
                         @endif
-                        
+
                         @if(session('password'))
                         <div class="alert alert-danger my-4">
                             {{session('password')}}
                         </div>
                         @endif
-                        
+
                         <div class="mb-3">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" class="form-control" required>

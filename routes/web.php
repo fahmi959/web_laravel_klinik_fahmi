@@ -11,7 +11,9 @@ use App\Http\Controllers\TindakanController;
 use App\Http\Controllers\DataRawatController;
 use App\Http\Controllers\PasienImsController;
 use App\Http\Controllers\TempatTidurController;
+use App\Http\Controllers\DataPuskesmasController;
 use App\Http\Controllers\ObatPerlengkapanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::get('/data_rawat', [AdminController::class, 'data_rawat'])->middleware('a
 Route::get('/obat_perlengkapan', [AdminController::class, 'obat_perlengkapan'])->middleware('admin');
 Route::get('/data_tindakan', [AdminController::class, 'data_tindakan'])->middleware('admin');
 Route::get('/data_pasien_ims', [AdminController::class, 'data_pasien_ims'])->middleware('admin');
+Route::get('/data_puskesmas', [AdminController::class, 'data_puskesmas'])->middleware('admin');
 
 //CRUD dokter
 Route::get('/tambah_dokter', [DokterController::class, 'tambah_dokter'])->middleware('admin');
@@ -109,6 +112,8 @@ Route::get('/login', [AuthController::class, 'login']);
 Route::post('/store_login', [AuthController::class, 'store_login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
+
+
 //CRUD Pasien IMS
 Route::get('/tambah_pasien_ims', [PasienImsController::class, 'tambah_pasien_ims'])->middleware('admin');
 Route::post('/store_pasien_ims', [PasienImsController::class, 'store_pasien_ims'])->middleware('admin');
@@ -116,12 +121,34 @@ Route::post('/hapus_pasien_ims', [PasienImsController::class, 'hapus_pasien_ims'
 Route::get('/edit_pasien_ims/{id}', [PasienImsController::class, 'edit_pasien_ims'])->middleware('admin');
 Route::post('/update_pasien_ims', [PasienImsController::class, 'update_pasien_ims'])->middleware('admin');
 Route::post('/cari_pasien_ims', [PasienImsController::class, 'cari_pasien_ims']);
-
-// index_pasien_ims
+// index_pasien_ims memakai controller pasien ims
 Route::get('pasien_ims', [PasienImsController::class, 'index']);
-// generate pdf
-Route::get('generatepdf', [PasienImsController::class, 'generatepdf'])->name('pasien_ims.pdf');
-// upload atau import
+// upload atau import controller pasien ims
 Route::post('pasien_ims-import', [PasienImsController::class, 'import'])->name('pasien_ims.import');
-// export excel
+// export excel controller pasien ims
 Route::get('pasien_ims-export', [PasienImsController::class, 'export'])->name('pasien_ims.export');
+// generate pdf controller pasien ims
+Route::get('generatepdf', [PasienImsController::class, 'generatepdf'])->name('pasien_ims.pdf');
+// hapus semua database data puskesmas
+Route::get('hapus_semua_data_pasien_ims', [PasienImsController::class, 'hapus_semua_data_pasien_ims'])->name('pasien_ims.delete_semua');
+
+
+
+//CRUD Data Puskesmas
+Route::get('/tambah_data_puskesmas', [DataPuskesmasController::class, 'tambah_data_puskesmas'])->middleware('admin');
+Route::post('/store_data_puskesmas', [DataPuskesmasController::class, 'store_data_puskesmas'])->middleware('admin');
+Route::post('/hapus_data_puskesmas', [DataPuskesmasController::class, 'hapus_data_puskesmas'])->middleware('admin');
+Route::get('/edit_data_puskesmas/{kode_kd}', [DataPuskesmasController::class, 'edit_data_puskesmas'])->middleware('admin');
+Route::post('/update_data_puskesmas', [DataPuskesmasController::class, 'update_data_puskesmas'])->middleware('admin');
+Route::post('/cari_data_puskesmas', [DataPuskesmasController::class, 'cari_data_puskesmas']);
+// index_data_puskesmas memakai controller data puskesmas
+Route::get('puskesmas_kecamatan_kelurahans', [DataPuskesmasController::class, 'index']);
+// upload atau import controller data puskesmas
+Route::post('puskesmas_kecamatan_kelurahans-import', [DataPuskesmasController::class, 'import'])->name('puskesmas_kecamatan_kelurahans.import');
+// export excel controller data puskesmas
+Route::get('puskesmas_kecamatan_kelurahans-export', [DataPuskesmasController::class, 'export'])->name('puskesmas_kecamatan_kelurahans.export');
+// generate pdf controller pasien data puskesmas
+Route::get('unduhpdf', [DataPuskesmasController::class, 'unduhpdf'])->name('puskesmas_kecamatan_kelurahans.pdf');
+// hapus semua database data puskesmas
+Route::get('hapus_semua_data_puskesmas', [DataPuskesmasController::class, 'hapus_semua_data_puskesmas'])->name('puskesmas_kecamatan_kelurahans.delete_semua');
+

@@ -112,8 +112,13 @@
                         </li>
                         <li class="slide">
                             <a class="side-menu__item" data-toggle="slide" href="/data_pasien_ims"><div class="side-angle1"></div><div class="side-angle2"></div><div class="side-arrow"></div>
-                        <i class="fas fa-users" style="font-size:22px; margin-right:10px"></i>
-                            <span class="side-menu__label">Data Pasien</span></a>
+                        <i class="fas fa-id-card " style="font-size:22px; margin-right:10px"></i>
+                            <span class="side-menu__label">Data Pasien Ims</span></a>
+                        </li>
+                        <li class="slide">
+                            <a class="side-menu__item" data-toggle="slide" href="/data_puskesmas"><div class="side-angle1"></div><div class="side-angle2"></div><div class="side-arrow"></div>
+                        <i class="fas fa-sitemap" style="font-size:22px; margin-right:10px"></i>
+                            <span class="side-menu__label">Data Puskesmas</span></a>
                         </li>
 				</ul>
 				<div class="app-sidefooter">

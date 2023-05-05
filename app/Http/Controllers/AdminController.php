@@ -53,5 +53,10 @@ class AdminController extends Controller
         return view('admin/data_pasien_ims', ['pasien_ims' => $pasien_ims]);
     }
 
+       public function data_puskesmas(){
+        $fahmi = DB::table('puskesmas_kecamatan_kelurahans')->paginate(10);
+        return view('admin/data_puskesmas', ['fahmi' => $fahmi]);
+    }
+
 
 }

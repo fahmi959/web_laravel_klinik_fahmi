@@ -26,7 +26,7 @@ class PasienImsImport implements ToModel, WithHeadingRow
 
             'no_cm' => (double) $row['no_cm'],
             'nama' => (string) $row['nama'],
-            'nik' => (double) $row['nik'],
+            'nik' =>  $row['nik'],
             // INI FORMAT DATE MEMAKAI TANDA STRIP ' - ' - ' - ' - ' - ' - ' - ' - ' - '
             'tanggal_lahir' => $row['tanggal_lahir'],
             'tanggal_kunjungan' => $row['tanggal_kunjungan'],
