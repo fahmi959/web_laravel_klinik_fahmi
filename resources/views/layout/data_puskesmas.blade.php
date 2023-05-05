@@ -104,10 +104,19 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
+                    <?php
+
+
+                    $i = 1;
+
+                ?>
+
+
                     @foreach ($puskesmas_kecamatan_kelurahans as $row)
                     <tr>
-                        <td>{{$row->kode_kd}}</td>
+
+
+                        <td>{{ old('kode_kd', $row->kode_kd) }}</td>
                         <td>{{$row->kelurahan}}</td>
                         <td>{{$row->kode_puskesmas}}</td>
                         <td>{{$row->nama_puskesmas}}</td>

@@ -28,7 +28,8 @@ class DataPuskesmasController extends Controller
     public function store_data_puskesmas(Request $request){
 
         $request->validate([
-            'kode_kd' => 'unique:puskesmas_kecamatan_kelurahans,kode_kd',
+            // 'kode_kd' => 'unique:puskesmas_kecamatan_kelurahans,kode_kd', // ini buat parameter angka
+            'kode_kd' => 'required',
             'kelurahan' => 'required|string',
             'kode_puskesmas' => 'required',
             'nama_puskesmas' => 'required|max:255',
@@ -65,7 +66,7 @@ class DataPuskesmasController extends Controller
         DB::table('puskesmas_kecamatan_kelurahans')->where('kode_kd', $kode_kd)->delete();
         return redirect('/data_puskesmas')->with('hapus', 'Data pasien berhasil dihapus');
     }
-    
+
 // INI BUAT HAPUS SEMUA DATA YANG ADA PADA TABEL DATABASE
     public function hapus_semua_data_puskesmas() {
         DB::table('puskesmas_kecamatan_kelurahans')->truncate();
@@ -74,11 +75,12 @@ class DataPuskesmasController extends Controller
 
     public function edit_data_puskesmas($kode_kd){
         // JIKA fungsi FIND Adalah Mencari ID Ototmatis Dalam bentuk Apapun Tanpa Toleransi
-        // $data = DB::table('puskesmas_kecamatan_kelurahans')->find($id);
+        // $data = DB::table('puskesmas_kecamatan_kelurahans')->find($kode_id);
         // return view('admin/edit_data_puskesmas', ['data' => $data]);
 
 // untuk mencari view edit Maka caranya adalah kita gunakan first agar mencari selain id yaitu primary key yang lain
-        $data = PuskesmasKecamatanKelurahan::where('kode_kd', $kode_kd)->first();
+        // $data = PuskesmasKecamatanKelurahan::where('kode_kd', $kode_kd)->first(); // ini memakai model
+        $data = DB::table('puskesmas_kecamatan_kelurahans')->where('kode_kd', $kode_kd)->first(); // ini langsung ke database
         return view('admin/edit_data_puskesmas', ['data' => $data]);
 
     }

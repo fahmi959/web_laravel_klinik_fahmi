@@ -42,7 +42,7 @@
                             <input type="hidden" value="{{$data->id}}" name="id">
                             <div class="mb-3">
                                 <label for="no_cm">No CM</label>
-                                <input type="tel" name="no_cm" id="no_cm" class="form-control" value="{{ $data->no_cm }}" required>
+                                <input type="tel" name="no_cm" id="no_cm"  readonly  class="form-control" value="{{ $data->no_cm }}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="nama">Nama</label>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="diagnosa">Diagnosa</label>
-                            <input type="text" name="diagnosa" id="diagnosa" class="form-control" value="{{$data->diagnosa}}">
+                            <input type="text" name="diagnosa" id="diagnosa" class="form-control" value="{{$data->diagnosa}}" required>
                         </div>
                         <div class="mb-3">
                             <label for="status">Status</label>

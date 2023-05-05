@@ -49,7 +49,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="nik">NIK</label>
-                                <input type="text" class="form-control" name="nik" required id="nik" value="{{ old('nik') }}">
+                                <input type="text" class="form-control" name="nik" id="nik" value="{{ old('nik') }}">
                             </div>
                         <div class="mb-3">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
@@ -68,7 +68,7 @@
 
                         <div class="mb-3">
                             <label for="diagnosa">Diagnosa</label>
-                            <input type="text" name="diagnosa" class="form-control" id="diagnosa" value="{{ old('diagnosa') }}">
+                            <input type="text" name="diagnosa" required  class="form-control" id="diagnosa" value="{{ old('diagnosa') }}">
                         </div>
 
                         <div class="mb-3">

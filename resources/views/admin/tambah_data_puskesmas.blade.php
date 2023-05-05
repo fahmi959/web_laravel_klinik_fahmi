@@ -39,14 +39,23 @@
 
                          {{--  INI PEMISAH UNTUK FORM YANG TAMPIL  --}}
                             @csrf
+
+
                             <div class="mb-3">
                                 <label for="kode_kd">Kode KD</label>
-                                <input type="tel" name="kode_kd" id="kode_kd" class="form-control" required value="{{ old('kode_kd') }}">
+                                <input type="text" name="kode_kd" id="kode_kd" class="form-control" required value="{{ old('kode_kd') }}">
                             </div>
+{{--   HARUS HATI - HATI TIPE INPUT TEL TIDAK AKAN MENDETEKSI HURUF NANTI AKAN KE ANGKA 0 OTOMATIS MAKANYA JANGAN SALAH --}}
+                            {{--  <div class="mb-3">
+                                <label for="kode_kd">Kode KD</label>
+                                <input type="tel" name="kode_kd" id="kode_kd" class="form-control" required value="{{ old('kode_kd') }}">
+                            </div>  --}}
+
                             <div class="mb-3">
                                 <label for="kelurahan">Kelurahan</label>
                                 <input type="text" class="form-control" name="kelurahan" required id="kelurahan" value="{{ old('kelurahan') }}">
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="kode_puskesmas">Kode Puskesmas</label>
                                 <input type="text" class="form-control" name="kode_puskesmas" required id="kode_puskesmas" value="{{ old('kode_puskesmas') }}">

@@ -33,14 +33,14 @@ class PasienImsController extends Controller
             'no_cm' => 'required|numeric',
             'nama' => 'required|string',
             // 'nik' => 'required|unique:pasien_ims|integer',
-            'nik' => 'required|integer',
+            'nik' => 'nullable|integer',
             'tanggal_lahir' => 'required',
             'tanggal_kunjungan' => 'required',
             'alamat' => 'required',
             'diagnosa' => 'required|max:255',
             'status' => 'nullable',
             'kelurahan' => 'required',
-            'jenis_kelamin' => 'required',
+            'jenis_kelamin' => 'nullable',
             'puskesmas' => 'required',
             ]);
 
@@ -89,7 +89,7 @@ class PasienImsController extends Controller
 
         $request->validate([
             'no_cm' => 'required|numeric',
-            'nama' => 'required|string',
+            'nama' => 'string|nullable',
             'nik' => 'required|integer',
             'tanggal_lahir' => 'required',
             'tanggal_kunjungan' => 'required',
@@ -97,7 +97,7 @@ class PasienImsController extends Controller
             'diagnosa' => 'required|max:255',
             'status' => 'nullable',
             'kelurahan' => 'required',
-            'jenis_kelamin' => 'required',
+            'jenis_kelamin' => 'nullable',
             'puskesmas' => 'required',
             ]);
 

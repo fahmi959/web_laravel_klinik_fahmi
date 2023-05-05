@@ -56,7 +56,7 @@
                                         &nbsp;  &nbsp;
 
                                     <a href="{{ route('pasien_ims.pdf') }}"  class="mx-auto">
-                                        <button class='btn btn-danger '  style="margin-left: 10px;">Generate PDF</button>
+                                        <button class='btn btn-danger '  style="margin-left: 10px;">Cetak PDF</button>
                                     </a>
 
 

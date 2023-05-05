@@ -19,14 +19,14 @@ class PasienIms extends Migration
         $table->double('no_cm');
         $table->string('nama');
         // $table->double('nik')->unique(); // kalau mau Unique tidak boleh sama
-         $table->string('nik');
+         $table->string('nik')->nullable();
         $table->date('tanggal_lahir');
         $table->date('tanggal_kunjungan');
         $table->text('alamat');
         $table->char('diagnosa', 255);
-        $table->char('status');
+        $table->char('status')->nullable(); // nullable Artinya datanya boleh kosong
         $table->string('kelurahan');
-        $table->char('jenis_kelamin');
+        $table->char('jenis_kelamin')->nullable();
         $table->string('puskesmas');
 
         $table->timestamps();

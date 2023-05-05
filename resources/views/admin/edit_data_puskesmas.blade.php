@@ -40,10 +40,18 @@
                              {{--  INI PEMISAH UNTUK FORM YANG TAMPIL  --}}
                             @csrf
                             <input type="hidden" value="{{$data->kode_kd}}" name="kode_kd">
+
+                            {{--  TIPE DATA TELEPON BERBAHAYA GESS NANTI HURUF JADI ANGKA SAAT DICETAK  --}}
                             {{--  <div class="mb-3">
                                 <label for="kode_kd">Kode KD</label>
-                                <input type="tel" name="kode_kd" id="kode_kd" class="form-control" value="{{ $data->kode_kd }}" >
+                                <input type="tel" name="kode_kd" id="kode_kd" readonly class="form-control"  value="{{ $data->kode_kd }}" >
                             </div>  --}}
+                            <div class="mb-3">
+                                <label for="kode_kd">Kode KD</label>
+                                <input type="text" class="form-control" name="kode_kd" readonly id="kode_kd" value="{{    $data->kode_kd}}">
+                            </div>
+
+
                             <div class="mb-3">
                                 <label for="kelurahan">Kelurahan</label>
                                 <input type="text" class="form-control" name="kelurahan" required id="kelurahan" value="{{ $data->kelurahan }}">
