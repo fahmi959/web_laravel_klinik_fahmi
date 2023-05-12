@@ -127,6 +127,13 @@ class PasienImsController extends Controller
                         ->where('nama', 'like', "%$request->keyword%")
                         ->orWhere('no_cm', 'like', "%$request->keyword%")
                         ->orWhere('nik', 'like', "%$request->keyword%")
+                          ->orWhere('tanggal_kunjungan', 'like', "%$request->keyword%")
+                          ->orWhere('diagnosa', 'like', "%$request->keyword%")
+                            ->orWhere('alamat', 'like', "%$request->keyword%")
+                            ->orWhere('status', 'like', "%$request->keyword%")
+                            ->orWhere('kelurahan', 'like', "%$request->keyword%")
+                            ->orWhere('jenis_kelamin', 'like', "%$request->keyword%")
+                            ->orWhere('puskesmas', 'like', "%$request->keyword%")
                         ->get();
         return view('admin.cari_pasien_ims', ['pasien_ims' => $pasien_ims, 'keyword' => $request->keyword]);
     }
